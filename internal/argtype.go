@@ -41,7 +41,7 @@ type ArgType struct {
 	Uint32Type string `arg:"--uint32-type,-u,help:Go type to assign to unsigned integers"`
 
 	// IgnoreFields allows the user to specify field names which should not be
-	// handled by xo in the generated code.
+	// handled by xoxo in the generated code.
 	IgnoreFields []string `arg:"--ignore-fields,help:fields to exclude from the generated Go code types"`
 
 	// ForeignKeyMode is the foreign key mode for generating foreign key names.
@@ -211,7 +211,7 @@ func NewDefaultArgs() *ArgType {
 
 // Description provides the description for the command output.
 func (a *ArgType) Description() string {
-	return `xo is a command line utility to generate Go code from a database schema.
+	return `xoxo is a command line utility to generate Go code from a database schema.
 `
 }
 

@@ -1,6 +1,6 @@
 package internal
 
-import "github.com/knq/xo/models"
+import "github.com/xoxo-go/xoxo/models"
 
 // TemplateType represents a template type.
 type TemplateType uint

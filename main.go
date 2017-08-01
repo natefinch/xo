@@ -17,15 +17,15 @@ import (
 	"github.com/alexflint/go-arg"
 
 	"github.com/knq/dburl"
-	"github.com/knq/xo/internal"
-	"github.com/knq/xo/models"
+	"github.com/xoxo-go/xoxo/internal"
+	"github.com/xoxo-go/xoxo/models"
 
-	_ "github.com/knq/xo/loaders"
-	_ "github.com/knq/xoutil"
+	_ "github.com/xoxo-go/xoxo/loaders"
+	_ "github.com/xoxo-go/xoxoutil"
 )
 
 func main() {
-	// circumvent all logic to just determine if xo was built with oracle
+	// circumvent all logic to just determine if xoxo was built with oracle
 	// support
 	if len(os.Args) == 2 && os.Args[1] == "--has-oracle-support" {
 		var out int
