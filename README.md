@@ -1,4 +1,4 @@
-# About xo
+# About sqlgen (forked from [github.com/knq/xo](https://github.com/knq/xo))
 
 `xo` is a command-line tool to generate [Go](https://golang.org/project/)
 code based on a database schema or a custom query.
