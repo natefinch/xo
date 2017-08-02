@@ -6,7 +6,7 @@ package models
 import (
 	"errors"
 
-	"github.com/xoxo-go/xoxoutil"
+	"github.com/xoxo-go/xoutil"
 )
 
 // Book represents a row from 'books'.
