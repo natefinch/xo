@@ -21,7 +21,7 @@ import (
 	"github.com/xoxo-go/xoxo/models"
 
 	_ "github.com/xoxo-go/xoxo/loaders"
-	_ "github.com/xoxo-go/xoxoutil"
+	_ "github.com/xoxo-go/xoutil"
 )
 
 func main() {
