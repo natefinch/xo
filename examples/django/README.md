@@ -1,6 +1,6 @@
 # About django examples
 
-The django examples are the result of running `xo` against all the supported
+The django examples are the result of running `xoxo` against all the supported
 databases that django supports. It is helpful for comparing generated code
 against the supported databases, as well because django has a non-trivial
 schema with more realistic database relationships than the simple [booktest](../booktest)

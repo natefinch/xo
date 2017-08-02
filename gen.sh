@@ -14,9 +14,9 @@ fi
 
 EXTRA=$2
 
-XOBIN=$(which xo)
-if [ -e ./xo ]; then
-  XOBIN=./xo
+XOBIN=$(which xoxo)
+if [ -e ./xoxo ]; then
+  XOBIN=./xoxo
 fi
 
 set -ex

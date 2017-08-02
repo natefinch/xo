@@ -11,9 +11,9 @@ EXTRA=$1
 
 SRC=$(realpath $(cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd ))
 
-XOBIN=$(which xo)
-if [ -e $SRC/../../../xo ]; then
-  XOBIN=$SRC/../../../xo
+XOBIN=$(which xoxo)
+if [ -e $SRC/../../../xoxo ]; then
+  XOBIN=$SRC/../../../xoxo
 fi
 
 DEST=$SRC/models
