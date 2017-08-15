@@ -1,6 +1,8 @@
 package internal
 
 import (
+	"errors"
+	"fmt"
 	"strconv"
 	"strings"
 	"text/template"
@@ -27,6 +29,10 @@ func (a *ArgType) NewTemplateFuncs() template.FuncMap {
 		"colname":        a.colname,
 		"hascolumn":      a.hascolumn,
 		"hasfield":       a.hasfield,
+		"makeMap":        a.makeMap,
+		"makeSlice":      a.makeSlice,
+		"typeName":       a.typeName,
+		"titleCase":      a.titleCase,
 	}
 }
 
@@ -510,4 +516,46 @@ func (a *ArgType) hasfield(fields []*Field, name string) bool {
 	}
 
 	return false
+}
+
+// makeMap expects an even number of parameters, in order to have name:value
+// pairs.  All even values must be strings as keys.  Odd values may be any
+// value. This is used to make maps to pass information into sub templates,
+// range statements, etc.
+func (a *ArgType) makeMap(vals ...interface{}) (map[string]interface{}, error) {
+	if len(vals)%2 != 0 {
+		return nil, errors.New("Odd number of arguments passed to makeMap.")
+	}
+	ret := make(map[string]interface{}, len(vals)/2)
+	for x := 0; x < len(vals); x += 2 {
+		s, ok := vals[x].(string)
+		if !ok {
+			return nil, fmt.Errorf("expected key values to be string, but got %T", vals[x])
+		}
+		ret[s] = vals[x+1]
+	}
+	return ret, nil
+}
+
+// makeSlice is an easy way to make a slice from inside a template, useful for
+// passing information to sub templates and range statements.
+func (a *ArgType) makeSlice(vals ...interface{}) []interface{} {
+	return vals
+}
+
+// typeName returns the portion of a string after a period, or the whole string if there was no period.
+func (a *ArgType) typeName(s string) string {
+	idx := strings.Index(s, ".")
+	if idx == -1 {
+		return s
+	}
+	if idx >= len(s)-1 {
+		return ""
+	}
+	return s[idx+1:]
+}
+
+// titleCase returns the given string run through strings.TitleCase.
+func (a *ArgType) titleCase(s string) string {
+	return strings.Title(s)
 }
